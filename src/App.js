@@ -8,11 +8,16 @@ import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 import bg1 from './app/images/bg.jpg';
-import bg2 from './app/images/bg2.jpg';
-import bg3 from './app/images/bg3.jpg';
+// import bg2 from './app/images/bg2.jpg';
+// import bg3 from './app/images/bg3.jpg';
 
 import './App.css';
-import { deviceSize } from './components/Responsive';
+import Top from './components/top/Top';
+import { deviceSize } from './components/ResponsiveSize';
+import Bottom from './components/bottom/Bottom';
+import ResponsiveCarousel from './components/top/ResponsiveCarousel';
+import Inputs from './components/top/Inputs';
+
 const AppContainer = styledComponents.div`
   ${tw`lg:flex-row`}
 	display: flex;
@@ -24,10 +29,10 @@ const AppContainer = styledComponents.div`
 	`;
 
 const TopContainer = styledComponents.div`
-	
+
 	flex-basis: 80px;
 	flex-grow: 1;
-	
+
 	${tw`
 	h-screen
 	flex
@@ -38,17 +43,14 @@ const TopContainer = styledComponents.div`
 `;
 
 const BottomContainer = styledComponents.div`
-	${tw`bg-blue-200 
-  flex
-  sm:flex-grow[2]
-  h-screen
-  `}
-  
+	${tw`
+		bg-blue-200
+		flex
+		h-screen
+		// lg:flex-grow[2]
+  	`}
+
 	flex-grow: 5;
-	flex-shrink: 1;
-	flex-basis: auto;
-	align-self: auto;
-	order: 0;
 `;
 
 const Input = styledComponents.input`
@@ -58,12 +60,13 @@ const Input = styledComponents.input`
 		h-10
 		rounded-xl
 		shadow-md
-		lg:w-11/12 
+		lg:w-11/12
 		bg-green-200
 		focus:bg-red-400
 		m-auto
 		focus:transition-all
-		
+		text-center
+
 	`}
 `;
 
@@ -88,7 +91,7 @@ const Image = tw.div`
     // w-11/12
 	m-10
     max-w-max
-	
+
 `;
 
 export const Description = tw.p`
@@ -97,7 +100,7 @@ export const Description = tw.p`
     bg-black
     bottom-10
     left-1/2
-    
+
     pl-4
     pr-4
     pt-2
@@ -112,25 +115,19 @@ export default function App() {
 	return (
 		<AppContainer>
 			<TopContainer>
-				<TitleContainer>
-					<Input placeholder='Type here1' />
-					<Input placeholder='Type here2' />
-				</TitleContainer>
-				{!isMobile && (
-					<Carousel dynamicHeight={false}>
-						{Array(7)
-							.fill(0)
-							.map((el, index) => (
-								<Image>
-									<img src={bg1} key={index} alt='bla' />
-									<Description>Hello</Description>
-								</Image>
-							))}
-					</Carousel>
-				)}
+				<Inputs />
+				{!isMobile && <ResponsiveCarousel />}
 			</TopContainer>
 			<BottomContainer>
-				{/* <TitleContainer>World</TitleContainer> */}
+				{/* <h1
+					className='m-auto
+    bg-pink-400
+    w-full
+    h-screen'
+				>
+					hello
+				</h1> */}
+				<Bottom />
 			</BottomContainer>
 		</AppContainer>
 	);
