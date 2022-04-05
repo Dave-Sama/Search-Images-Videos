@@ -2,8 +2,17 @@ import React from 'react';
 
 import styledComponents from 'styled-components';
 import tw from 'twin.macro';
+import { useMediaQuery } from 'react-responsive';
+
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+
+import bg1 from './app/images/bg.jpg';
+import bg2 from './app/images/bg2.jpg';
+import bg3 from './app/images/bg3.jpg';
 
 import './App.css';
+import { deviceSize } from './components/Responsive';
 const AppContainer = styledComponents.div`
   ${tw`lg:flex-row`}
 	display: flex;
@@ -72,15 +81,53 @@ const TitleContainer = styledComponents.div`
 	lg:m-0
   `}
 `;
+const Image = tw.div`
+	flex
+	flex-col
+	self-center
+    // w-11/12
+	m-10
+    max-w-max
+	
+`;
+
+export const Description = tw.p`
+    text-gray-300
+    text-center
+    bg-black
+    bottom-10
+    left-1/2
+    
+    pl-4
+    pr-4
+    pt-2
+    pb-2
+    rounded-2xl
+    opacity-80
+    transform[translateX(-50%)]
+    absolute
+`;
 export default function App() {
+	const isMobile = useMediaQuery({ maxWidth: deviceSize.laptop });
 	return (
 		<AppContainer>
 			<TopContainer>
-				{' '}
 				<TitleContainer>
 					<Input placeholder='Type here1' />
 					<Input placeholder='Type here2' />
 				</TitleContainer>
+				{!isMobile && (
+					<Carousel dynamicHeight={false}>
+						{Array(7)
+							.fill(0)
+							.map((el, index) => (
+								<Image>
+									<img src={bg1} key={index} alt='bla' />
+									<Description>Hello</Description>
+								</Image>
+							))}
+					</Carousel>
+				)}
 			</TopContainer>
 			<BottomContainer>
 				{/* <TitleContainer>World</TitleContainer> */}
