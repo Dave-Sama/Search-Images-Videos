@@ -12,15 +12,17 @@ const AppContainer = styledComponents.div`
 	justify-content: flex-start;
 	align-items: stretch;
 	align-content: stretch;
-`;
+	`;
 
 const TopContainer = styledComponents.div`
 	
+	flex-basis: 100px;
 	flex-grow: 1;
-
+	
 	${tw`
+	h-screen
+	
 	flex
-	max-h-screen
     bg-red-200
   	`}
 `;
