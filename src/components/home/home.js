@@ -13,6 +13,7 @@ import bg1 from '../../images/bg.jpg';
 import bg2 from '../../images/bg2.jpg';
 import bg3 from '../../images/bg3.jpg';
 import { isStyledComponent } from 'styled-components';
+import Arrow from '../resusable/Arrow';
 
 const bounceInUpAnimation = keyframes`${fadeInUp}`;
 const bounceInDownAnimation = keyframes`${fadeInDown}`;
@@ -62,7 +63,7 @@ const Information = styledComponents.div`
 
 const Image = styledComponents.img`
     animation: 5s ${(props) => {
-			if (props.myWidth > 1000) {
+			if (props.myWidth > 500) {
 				return props.even ? bounceInUpAnimation : bounceInDownAnimation;
 			} else {
 				return props.even ? bounceInLeftAnimation : bounceInRightAnimation;
@@ -86,10 +87,11 @@ const FloatingText = styledComponents.h1`
 	stroke-2
 	stroke-opacity[0.5]
 	stroke-current
-	left-14
-	mt-20
+	lg:left-14
+	lg:mt-20
 	text-white
 	md:mx-14
+	font-size[50px]
 	md:font-size[50px]
 	lg:font-size[105px]
     lg:line-height[140px]
@@ -97,20 +99,38 @@ const FloatingText = styledComponents.h1`
     2xl:line-height[155px]
 	`};
 `;
-function Home() {
+
+const Images = () => {
 	const [width, setWidth] = useState(window.innerWidth);
-	const [height, setHeight] = useState(window.innerHeight);
-	const updateDimensions = () => {
-		setWidth(window.innerWidth);
-		setHeight(window.innerHeight);
-	};
+
 	useEffect(() => {
 		window.addEventListener('resize', updateDimensions);
 		return () => window.removeEventListener('resize', updateDimensions);
 	}, []);
 
+	const updateDimensions = () => {
+		setWidth(window.innerWidth);
+	};
+
 	return (
-		<HomeContainer>
+		<>
+			<Image even myWidth={width} src={bg1} />
+			<Image odd myWidth={width} src={bg2} />
+			<Image even myWidth={width} src={bg3} />
+		</>
+	);
+};
+function Home() {
+	const [displayImages, setDisplayImages] = useState(false);
+
+	useEffect(() => {
+		setTimeout(() => {
+			setDisplayImages(true);
+		}, 1000);
+	}, []);
+
+	return (
+		<HomeContainer name='Home'>
 			<Navbar />
 			<Content>
 				<Right>
@@ -121,10 +141,12 @@ function Home() {
 						</FloatingText>
 					</Information>
 				</Right>
-				<Image even myWidth={width} src={bg1} />
+				{/* <Image even myWidth={width} src={bg1} />
 				<Image odd myWidth={width} src={bg2} />
-				<Image even myWidth={width} src={bg3} />
+				<Image even myWidth={width} src={bg3} /> */}
+				{displayImages && <Images />}
 			</Content>
+			<Arrow up={false} who={'Home'} />
 		</HomeContainer>
 	);
 }

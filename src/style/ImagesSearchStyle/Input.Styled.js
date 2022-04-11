@@ -23,7 +23,7 @@ export const TitleContainer = styledComponents.div`
 export const Input = styledComponents.input`
 	${tw`
 		placeholder:text-center
-		w-5/12
+		w-10/12
 		h-10
 		rounded-xl
 		shadow-md

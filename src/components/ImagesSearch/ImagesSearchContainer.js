@@ -3,19 +3,24 @@ import styledComponents from 'styled-components';
 import tw from 'twin.macro';
 import Bottom from './bottom/BottomContainer';
 import TopContainer from './top/TopContainer';
+import { Element } from 'react-scroll';
+import Arrow from '../resusable/Arrow';
 
-const ImagesContainer = styledComponents.div`
-display: flex;
-flex-direction: column;
-${tw`lg:flex-row`}
+const ImagesContainer = tw.div(Element)`
+	flex
+	flex-col
+	lg:flex-row
+	height[80%]
 `;
 
 function ImagesSearchContainer() {
 	return (
-		<ImagesContainer>
-			<TopContainer />
-			<Bottom />
-		</ImagesContainer>
+		<>
+			<ImagesContainer name='ImageSearch'>
+				<TopContainer />
+				<Bottom />
+			</ImagesContainer>
+		</>
 	);
 }
 

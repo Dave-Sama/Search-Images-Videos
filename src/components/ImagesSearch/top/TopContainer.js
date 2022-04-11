@@ -16,8 +16,7 @@ import LoadingIcons from 'react-loading-icons';
 
 // Styles:
 import { TopCon } from '../../../style/ImagesSearchStyle/Top.Styled';
-
-
+import Arrow from '../../resusable/Arrow';
 
 function TopContainer() {
 	const isMobile = useMediaQuery({ maxWidth: deviceSize.laptop });
@@ -60,10 +59,13 @@ function TopContainer() {
 	};
 
 	return (
-		<TopCon>
-			<Inputs onChangeAnimalSearch={onChangeAnimalSearch} />
-			{display()}
-		</TopCon>
+		<>
+			<TopCon>
+				<Inputs onChangeAnimalSearch={onChangeAnimalSearch} />
+				{display()}
+				<Arrow up={false} who={'ImageSearch'} />
+			</TopCon>
+		</>
 	);
 }
 

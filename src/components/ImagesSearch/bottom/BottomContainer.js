@@ -19,6 +19,7 @@ import {
 	CardsOn,
 	InnerPanel,
 } from '../../../style/ImagesSearchStyle/Bottom.Styled';
+import Arrow from '../../resusable/Arrow';
 
 function Bottom() {
 	const isMobile = useMediaQuery({ maxWidth: deviceSize.mobile });
@@ -40,11 +41,7 @@ function Bottom() {
 					<CardsOn gcols={styledComponents}>{displayCards()}</CardsOn>
 				) : (
 					<Cards>
-						<LoadingIcons.Circles
-							speed={0.5}
-							className='m-auto'
-							
-						/>
+						<LoadingIcons.Circles speed={0.5} className='m-auto' />
 					</Cards>
 				)}
 			</InnerPanel>

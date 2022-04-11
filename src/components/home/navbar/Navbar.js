@@ -27,17 +27,17 @@ function Navbar() {
 		<div>
 			<NavItems>
 				<NavItem>
-					<Link to='Home' smooth={'easeInOutQuad'} duration={1000}>
+					<Link to='Home' smooth={'easeInOutQuad'} duration={1500}>
 						Home
 					</Link>
 				</NavItem>
 				<NavItem>
-					<Link to='ImageSearch' smooth={'easeInOutQuad'} duration={1000}>
+					<Link to='ImageSearch' smooth={'easeInOutQuad'} duration={1500}>
 						Images
 					</Link>
 				</NavItem>
 				<NavItem>
-					<Link to='ImageSearch' smooth={'easeInOutQuad'} duration={1000}>
+					<Link to='Videos' smooth={'easeInOutQuad'} duration={1500}>
 						Videos
 					</Link>
 				</NavItem>
