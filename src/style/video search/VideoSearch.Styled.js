@@ -19,6 +19,7 @@ export const VideoDisplayContainer = styledComponents.div`
 		rounded
 		mx-auto
 		grid
+		grid-template-columns[auto auto auto auto]
 		gap-2.5
 	`}
 `;

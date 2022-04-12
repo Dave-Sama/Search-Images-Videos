@@ -8,8 +8,8 @@ import VideoSearch from './components/videoSearch/VideoSearch.js';
 export default function App() {
 	return (
 		<AppContainer>
-			{/* <Home />
-			<ImagesSearchContainer /> */}
+			<Home />
+			<ImagesSearchContainer />
 			<VideoSearch />
 		</AppContainer>
 	);

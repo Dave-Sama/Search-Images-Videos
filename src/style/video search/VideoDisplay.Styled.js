@@ -3,22 +3,19 @@ import tw from 'twin.macro';
 
 export const VideoContainer = styledComponents.div`
 	${tw`
-		bg-purple-400
-		text-center
-		grid-row[1/span 3]
-		grid-column[1/span 3]
-		md:grid-row[1/ span 7]
-		md:grid-column[1/span 3]	
+	grid-column[1/span 4]
+	grid-row[1/span 2]
+	md:grid-row[1/span 3]
+	md:grid-column[1/span 3]
 	`}
 `;
 
 export const DescriptionContainer = styledComponents.div`
 	${tw`
-		bg-green-400/20
-		text-center
-		grid-column[1/span 3]
-		
-		md:grid-column[1/span 3]
+	bg-purple-300/20
+	grid-column[1/span 4]
+	md:grid-row[4]
+	md:grid-column[1/span 3]
 
 	`}
 `;
