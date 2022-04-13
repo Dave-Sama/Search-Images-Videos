@@ -19,7 +19,12 @@ import { TopCon } from '../../../style/ImagesSearchStyle/Top.Styled';
 import Arrow from '../../resusable/Arrow';
 
 function TopContainer() {
-	const isMobile = useMediaQuery({ maxWidth: deviceSize.laptop });
+	const { width } = useSelector((state) => state.screen);
+	// console.log(width);
+	// const isMobile = useMediaQuery({ maxWidth: deviceSize.laptop });
+
+	// console.log('is mobile: ', isMobile);
+
 	const [animalSearch, setAnimalSearch] = useState('');
 
 	const { image, isAnimalLoading } = useSelector((state) => state.image);
@@ -52,20 +57,19 @@ function TopContainer() {
 	};
 
 	const display = () => {
-		if (!isMobile) {
+		console.log(width);
+		if (width >= 1020) {
 			if (isAnimalLoading) return <LoadingIcons.Circles className='m-auto' />;
 			else return <ResponsiveCarousel animals={image} />;
 		}
 	};
 
 	return (
-		<>
-			<TopCon>
-				<Inputs onChangeAnimalSearch={onChangeAnimalSearch} />
-				{display()}
-				<Arrow up={false} who={'ImageSearch'} />
-			</TopCon>
-		</>
+		<TopCon>
+			<Inputs onChangeAnimalSearch={onChangeAnimalSearch} />
+			{display()}
+			<Arrow up={false} who={'ImageSearch'} />
+		</TopCon>
 	);
 }
 

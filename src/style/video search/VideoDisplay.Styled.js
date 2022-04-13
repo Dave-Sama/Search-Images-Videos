@@ -12,7 +12,7 @@ export const VideoContainer = styledComponents.div`
 
 export const DescriptionContainer = styledComponents.div`
 	${tw`
-	bg-purple-300/20
+	bg-purple-300/10
 	grid-column[1/span 4]
 	md:grid-row[4]
 	md:grid-column[1/span 3]

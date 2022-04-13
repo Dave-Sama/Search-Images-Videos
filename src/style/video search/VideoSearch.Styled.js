@@ -12,8 +12,8 @@ export const VideoSearchContainer = styledComponents.div`
 
 export const VideoDisplayContainer = styledComponents.div`
 	${tw`
-		bg-blue-300
-		width[90%]
+		bg-blue-300/40
+		width[80%]
 		height[85%]
 		my-5
 		rounded

@@ -6,11 +6,9 @@ import { useSelector } from 'react-redux';
 
 // Apis:
 import LoadingIcons from 'react-loading-icons';
-import { useMediaQuery } from 'react-responsive';
 
 // Components:
 import ImageCard from './ImageCard';
-import { deviceSize } from '../../../assets/ResponsiveSize';
 
 // Styles:
 import {
@@ -22,7 +20,7 @@ import {
 import Arrow from '../../resusable/Arrow';
 
 function Bottom() {
-	const isMobile = useMediaQuery({ maxWidth: deviceSize.mobile });
+	const { width } = useSelector((state) => state.screen);
 	const { image, isAnimalLoading } = useSelector((state) => state.image);
 	const displayCards = () => {
 		return image
@@ -31,7 +29,7 @@ function Bottom() {
 	};
 
 	const styledComponents = () => {
-		return isMobile ? 1 : 2;
+		return width > 1020 ? 1 : 2;
 	};
 
 	return (

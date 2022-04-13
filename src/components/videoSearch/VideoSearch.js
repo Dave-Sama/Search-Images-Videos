@@ -17,32 +17,6 @@ import {
 import styledComponents from 'styled-components';
 import tw from 'twin.macro';
 
-const Test1 = styledComponents.div`
-${tw`
-	bg-red-300/20
-	grid-column[1/span 4]
-	grid-row[1/span 2]
-	md:grid-row[1/span 3]
-	md:grid-column[1/span 3]
-	`}
-	`;
-const Test2 = styledComponents.div`
-	${tw`
-	bg-purple-300/20
-	grid-column[1/span 4]
-	md:grid-row[4]
-	md:grid-column[1/span 3]
-`}
-`;
-const Test3 = styledComponents.div`
-${tw`
-	bg-green-300/20
-	grid-column[1/span 4]
-	md:grid-column[4]
-	md:grid-row[1/span 4]
-`}
-`;
-
 function VideoSearch() {
 	const [videos, SetVideos] = useState([]);
 	const [selectedVideo, SetSelectedVideo] = useState(null);
@@ -71,9 +45,6 @@ function VideoSearch() {
 				<Arrow up={true} who={'Videos'} />
 				<VideoSearchInput onChangeInput={onChangeInput} />
 				<VideoDisplayContainer>
-					{/* <Test1 />
-					<Test2 />
-					<Test3 /> */}
 					<VideoDisplay video={selectedVideo} />
 					<VideoList videos={videos} onVideoSelect={onVideoSelect} />
 				</VideoDisplayContainer>

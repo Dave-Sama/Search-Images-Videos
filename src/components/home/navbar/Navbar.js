@@ -49,12 +49,13 @@ function Navbar() {
 		<NavContainer>
 			<Logo />
 
-			{isMobile && (
+			{isMobile ? (
 				<Menu right styles={menuStyles}>
 					{items}
 				</Menu>
+			) : (
+				items
 			)}
-			{!isMobile && items}
 		</NavContainer>
 	);
 }

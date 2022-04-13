@@ -2,34 +2,14 @@ import React, { useEffect, useState } from 'react';
 import Navbar from './navbar/Navbar';
 import Arrow from '../resusable/Arrow';
 
-// Images:
-
-import bg1 from '../../images/bg.jpg';
-import bg2 from '../../images/bg2.jpg';
-import bg3 from '../../images/bg3.jpg';
 import {
 	Content,
 	FloatingText,
 	HomeContainer,
-	Image,
 	Information,
 	Right,
 } from '../../style/Home/Home.Styled';
-
-const Images = ({ updateDimensions, width }) => {
-	useEffect(() => {
-		window.addEventListener('resize', updateDimensions);
-		return () => window.removeEventListener('resize', updateDimensions);
-	}, []);
-
-	return (
-		<>
-			<Image position={'left'} bool={'even'} myWidth={width} src={bg3} />
-			<Image position={'middle'} bool={'odd'} myWidth={width} src={bg3} />
-			<Image position={'right'} bool={'even'} myWidth={width} src={bg3} />
-		</>
-	);
-};
+import Images from './display images/DisplayImages';
 
 function Home() {
 	const [displayImages, setDisplayImages] = useState(false);
